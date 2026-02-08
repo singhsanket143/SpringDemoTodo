@@ -20,4 +20,10 @@ public class InMemoryMapTodoRepository implements ITodoRepository {
         return new ArrayList<Todo>(todos.values());
     }
 
+    public Todo save(Integer newTodoId, String todoContent) {
+        Todo newTodo = new Todo(newTodoId, todoContent);
+        todos.put(newTodo.getId().toString(), newTodo);
+        return newTodo;
+    }
+
 }

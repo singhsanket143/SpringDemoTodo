@@ -1,4 +1,4 @@
-package com.example.demo.schema;
+package com.example.demo.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,7 +7,6 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class Todo {
-    private Integer id;
+public class CreateTodoDTO {
     private String content;
 }

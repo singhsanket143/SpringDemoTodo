@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.dtos.CreateTodoDTO;
 import com.example.demo.repositories.ITodoRepository;
 import com.example.demo.schema.Todo;
 
@@ -23,5 +24,20 @@ public class TodoService {
         // some algo to be exec
         return todoRepository.findAll();
 
+    }
+
+    public Todo createNewTodo(CreateTodoDTO createTodoDTO) {
+
+        Integer newTodoId = 1;
+
+        List<Todo> todos = todoRepository.findAll();
+
+        if(!todos.isEmpty()) {
+            Todo lastTodo = todos.get(todos.size() - 1);
+            newTodoId = lastTodo.getId() + 1;
+        }
+
+        Todo newTodo = todoRepository.save(newTodoId, createTodoDTO.getContent());
+        return newTodo;
     }
 }
