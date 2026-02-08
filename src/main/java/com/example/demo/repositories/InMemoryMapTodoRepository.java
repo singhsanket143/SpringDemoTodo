@@ -10,8 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.schema.Todo;
 
-@Repository
-@Profile("prod")
+@Repository("inMemoryMapTodoRepository")
 public class InMemoryMapTodoRepository implements ITodoRepository {
     
     private Map<String, Todo> todos = new HashMap<>();

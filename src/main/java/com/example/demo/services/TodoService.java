@@ -11,10 +11,13 @@ import com.example.demo.schema.Todo;
 import lombok.AllArgsConstructor;
 
 @Service
-@AllArgsConstructor
 public class TodoService {
     
     private ITodoRepository todoRepository;
+
+    public TodoService(@Qualifier("inMemoryTodoRepository") ITodoRepository _todoRepository) { // Todo: try to fetch the string value from env variable
+        this.todoRepository = _todoRepository;
+    }
 
     public List<Todo> getAllTodos() {
         // some algo to be exec

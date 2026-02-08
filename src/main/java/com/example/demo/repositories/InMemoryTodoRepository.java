@@ -9,8 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.schema.Todo;
 
-@Repository
-@Profile("dev")
+@Repository("inMemoryTodoRepository")
 public class InMemoryTodoRepository implements ITodoRepository {
     private List<Todo> todos = new ArrayList<>(Arrays.asList(
         new Todo("1", "Buy groceries"),
