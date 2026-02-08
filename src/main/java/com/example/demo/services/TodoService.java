@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.example.demo.repositories.TodoRepository;
+import com.example.demo.repositories.ITodoRepository;
 import com.example.demo.schema.Todo;
 
 import lombok.AllArgsConstructor;
@@ -13,7 +13,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class TodoService {
     
-    private TodoRepository todoRepository;
+    private ITodoRepository todoRepository;
 
     public List<Todo> getAllTodos() {
         // some algo to be exec
